@@ -1,5 +1,6 @@
 import React from 'react'
 import { useReducer } from 'react'
+import WebSocket from 'ws';
 
 enum ActionType {
   AddMessage = 'ADD_MESSAGE',
@@ -38,8 +39,13 @@ function reducer(state: initialStateInterface, action: Action) {
   }
 }
 
+function setWsReducer(ws: WebSocket, action: ) {
+
+}
+
 const ChatWindow: React.FC = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
+
   const handleMessageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({type:ActionType.SetMessage, payload: event.target.value})
   }
